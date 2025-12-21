@@ -11,8 +11,7 @@ app.use(express.json());
 
 app.post('/solve', (req, res) => {
     const encoded_array = req.body.encoded_array;
-
-    // IMPORTANT: convert everything to strings
+    
     const args = encoded_array.map(String);
 
     const solverPath = path.join(__dirname, 'solver.exe');
@@ -29,3 +28,4 @@ app.post('/solve', (req, res) => {
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
