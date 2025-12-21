@@ -883,7 +883,7 @@ function onRotateSqaureClick(e){
     encode = makeEncode(depth);
     //console.log(encode);
 
-    fetch("http://localhost:3000/solve", {
+    fetch("/solve", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ encoded_array: encode })
@@ -969,4 +969,5 @@ function onBackClick(){
 
     instruction_content.innerHTML = "<p>How did you like the game? If there is any suggestions related to, your likes or dislikes about the game, please email me from the mail ID given below. I would be happy to know from you</p><p>You may also try other setups of the game.</p>";
     
+
 }
