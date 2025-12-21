@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prism's Gambit</title>
+    <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+    
+    <div class="main_container">
+
+        <!--Instructions-->
+        <div class="instructions">
+            <div class="instruction-heading">
+                <h1>Prism's Gambit</h1>
+            </div>
+            <div class="instruction-content">
+                <p>
+                    Hello! This website is a laser chess website where you play a game of laser chess with my laser chess bot. you can find how to play the game and also s to how to use the website down below. Best of luck!
+                </p>
+            </div>
+        </div>
+        <!--Laser Animation-->
+        <canvas id="laser-canvas"></canvas>
+
+        <!--Rotate Button-->
+        <div class="rotate-button-container">
+            <div class="clockwise-rotate rotate-button">
+                <img src="./Media/Clockwise-Rotation.jpg"/>
+            </div>
+            <div class="anti-clockwise-rotate rotate-button">
+                <img src="./Media/Anti-Clockwise-Rotation.jpg"/>
+            </div>
+        </div>
+
+
+        <!--Board-->
+        <div class="board-container">
+            <div class="board">
+            </div>
+        </div>
+
+        <!--Form of game details-->
+        <div id="form-container">
+            <form action="" id="form" method="get">
+                <div class="depth-input-container">
+                    <label for="depth_input">Enter the Depth of the Engine : </label>
+                    <input type="number" id="depth_input" placeholder="1-4" max="4" min="1" name="depth_integer"  required/>
+                </div>
+                <div class="player-color-container">
+                    <label for="red-player-color">Red</label>
+                    <input type="radio" name="player-color" value="red" id="red-player-color" required/>
+                    <label for="blue-player-color">Blue</label>
+                    <input type="radio" name="player-color" value="blue" id="blue-player-color"/>
+                </div>
+                <div class="submit-button-container">
+                    <button type="submit">Start</button>
+                </div>
+            </form>
+        </div>
+
+        <!--Back Button-->
+        <div class="back-button">
+            <p>Back</p>
+        </div>
+
+        <!--Setup Catalog-->
+        <div class="setup-catalog-container">
+            <div class="setup-catalog-memember ace">
+                <div class="setup-title">
+                    <h2>ACE</h2>
+                </div>
+                <div class="setup-image">
+                    <img src="./Media/ACE_Setup.png" width="500px" class="ace-image"/>
+                </div>
+            </div>
+            <div class="setup-catalog-memember curiosity">
+                <div class="setup-title">
+                    <h2>CURIOSITY</h2>
+                </div>
+                <div class="setup-image">
+                    <img src="./Media/CURIOSITY_Setup.png" width="500px" class="curiosity-image"/>
+                </div>
+            </div>
+            <div class="setup-catalog-memember grail">
+                <div class="setup-title">
+                    <h2>GRAIL</h2>
+                </div>
+                <div class="setup-image">
+                    <img src="./Media/GRAIL_Setup.png" width="500px" class="grail-image"/>
+                </div>
+            </div>
+            <div class="setup-catalog-memember mercury">
+                <div class="setup-title">
+                    <h2>MERCURY</h2>
+                </div>
+                <div class="setup-image">
+                    <img src="./Media/MERCURY_Setup.png" width="500px" class="mercury-image"/>
+                </div>
+            </div>
+            <div class="setup-catalog-memember sophie">
+                <div class="setup-title">
+                    <h2>SOPHIE</h2>
+                </div>
+                <div class="setup-image">
+                    <img src="./Media/SOPHIE_Setup.png" width="500px" class="sophie-image"/>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!--How to play-->
+        <details>
+            <summary>How to play?</summary>
+            <p>
+                Given below is detailed explantion of the game and also the about how can you play it on this website. If needed a video explaining the game is also provided.<br><br>
+                <video>
+
+                </video>
+                <ul>
+                    <li>
+                        <h2>Rules of the Game</h2>
+                        <ul>
+                            <li>
+                                The game is played between two player with color Red and Blue (just like chess).
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>How to play on the website</h2>
+                        <ul>
+                            <li>You can make the use of the</li>
+                        </ul>
+                    </li>
+                </ul>
+            </p>
+        </details>
+
+        <!--Footer-->
+        <br><hr><br>
+        <div class="footer-container">
+                <div class="footer">
+                <div class="footer-card about-me">
+                    <div class="image-container">
+                        <div class="image"><a href="../../../index.html" target="_blank">
+                            <div class="the-image">
+                                <img src="./Media/Arush_Icon.PNG" width="50%"/>
+                            </div>
+                        </a></div>
+                    </div>
+                    <div class="footer-content"><p>Hey!</p></div>
+                </div>
+                <div class="footer-card documentation">
+                    <div class="image-container">
+                        <div class="image"><a href="./Documentation/how_i_made_it.html" target="_blank">
+                            <div class="the-image">
+                                <img src="./Media/Documentation_Icon.png" width="20%"/>
+                            </div>
+                        </a></div>
+                    </div>
+                    <div class="footer-content"><p>Documentation</p></div>
+                </div>
+                <div class="footer-card github">
+                    <div class="image-container">
+                        <div class="image"><a href="https://github.com/arushraju/Prisms-Gambit" target="_blank">
+                            <div class="the-image">
+                                <img src="./Media/github-mark.png" width="30%"/>
+                            </div>
+                        </a></div>
+                    </div>
+                    <div class="footer-content">Code</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+
+    <script src="./script.js"></script>
+    
+
+</body>
+</html>
