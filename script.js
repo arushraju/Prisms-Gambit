@@ -883,7 +883,7 @@ function onRotateSqaureClick(e){
     encode = makeEncode(depth);
     //console.log(encode);
 
-    fetch("/solve", {
+    fetch("https://prisms-gambit.onrender.com/solve", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ encoded_array: encode })
@@ -971,3 +971,4 @@ function onBackClick(){
     
 
 }
+
