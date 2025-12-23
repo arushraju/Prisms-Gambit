@@ -16,9 +16,10 @@ app.post('/solve', (req, res) => {
     // IMPORTANT: convert everything to strings
     const args = encoded_array.map(String);
 
-    const solverPath = path.join(__dirname, 'solver.exe');
+    const solverPath = path.join(__dirname, 'linux_server');
 
     execFile(solverPath, args, (err, stdout, stderr) => {
+        
         if (err) {
             return res.status(500).json({
                 error: err.message,
@@ -30,4 +31,5 @@ app.post('/solve', (req, res) => {
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
 
