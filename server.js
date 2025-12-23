@@ -11,6 +11,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.post("/solve", (req, res) => {
+    console.log("REQ BODY:", req.body);
     try {
         const { encoded_array } = req.body;
 
@@ -46,6 +47,7 @@ app.post("/solve", (req, res) => {
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
 
 
 
