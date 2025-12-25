@@ -706,7 +706,6 @@ async function onMovedSqaureClick(e){
     //console.log('So you want to move at ' + e.currentTarget);
     clicked_piece.classList.remove('Active_peice');
     for(let i=0;i<filtered_squares.length;i++){
-        filtered_squares[i].classList.remove('movable_sqaure');
         filtered_squares[i].style.backgroundColor = 'rgb(70, 70, 70)';
     }
     clicked_piece.style.transform = 'scale(1)';
@@ -725,7 +724,6 @@ async function onMovedSqaureClick(e){
     //Now bring back the colors of board back
     const squares = document.querySelectorAll('.square');
     for(let i=0;i<squares.length;i++){
-        squares[i].classList.remove('movable_sqaure');
         squares[i].style.backgroundColor = 'rgb(70, 70, 70)';
     }
 
@@ -795,7 +793,6 @@ async function onMovedSqaureClick(e){
         //Now bring back the colors of board back
         const squares = document.querySelectorAll('.square');
         for(let i=0;i<squares.length;i++){
-            squares[i].classList.remove('movable_sqaure');
             squares[i].style.backgroundColor = 'rgb(70, 70, 70)';
         }
 
@@ -896,7 +893,6 @@ async function onRotateSqaureClick(e){
     //Now bring back the colors of board back
     const squares = document.querySelectorAll('.square');
     for(let i=0;i<squares.length;i++){
-        squares[i].classList.remove('movable_sqaure');
         squares[i].style.backgroundColor = 'rgb(70, 70, 70)';
     }
 
@@ -963,7 +959,6 @@ async function onRotateSqaureClick(e){
         //Now bring back the colors of board back
         const squares = document.querySelectorAll('.square');
         for(let i=0;i<squares.length;i++){
-            squares[i].classList.remove('movable_sqaure');
             squares[i].style.backgroundColor = 'rgb(70, 70, 70)';
         }
 
