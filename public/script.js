@@ -1138,6 +1138,9 @@ function updateTracer(tracer_element,tracer_direction){
     if(tracer_element.classList.contains('bking') || tracer_element.classList.contains('rking')){
         return -1;
     }
+    //Laser encounters Laser
+    else if(tracer_element.classList.contains('blaser') || tracer_element.classList.contains('rlaser')){return 0;}
+
     //If the tracer is travelling down the board
     if(tracer_direction === -1){
         //Laser encounters Mirror
@@ -1155,6 +1158,7 @@ function updateTracer(tracer_element,tracer_direction){
             if(tracer_element.classList.contains('orient1')){return +8;}
             else return -8;
         } 
+        
     }
     //if the tracer is travelling up the board 
     else if(tracer_direction === +1){
