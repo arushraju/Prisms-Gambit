@@ -707,8 +707,14 @@ async function onMovedSqaureClick(e){
     board_update();
 
     //Animate the blue laser
-    animateLaser('red');
-    await sleep(4000);//Program sleeps for 4 seconds
+    animateLaser('blue');
+    await sleep(2000);//Program sleeps for 4 seconds
+    //Now bring back the colors of board back
+    const squares = document.querySelectorAll('.square');
+    for(let i=0;i<squares.length;i++){
+        squares[i].classList.remove('movable_sqaure');
+        squares[i].style.backgroundColor = 'rgb(70, 70, 70)';
+    }
 
     //Now the board should be used to make the encoded list of numbers
     let encode = [];
@@ -776,8 +782,13 @@ async function onMovedSqaureClick(e){
 
         //Make the animation for red laser
         animateLaser('red');
-        await sleep(4000);
-
+        await sleep(2000);
+        //Now bring back the colors of board back
+        const squares = document.querySelectorAll('.square');
+        for(let i=0;i<squares.length;i++){
+            squares[i].classList.remove('movable_sqaure');
+            squares[i].style.backgroundColor = 'rgb(70, 70, 70)';
+        }
 
 
         //Add the event listeners to all the squares again
@@ -869,8 +880,15 @@ async function onRotateSqaureClick(e){
     board_update();
 
     //Animate blue laser
-    animateLaser('red');
-    await sleep(4000);//Program sleeps for 4 seconds
+    animateLaser('blue');
+    await sleep(2000);//Program sleeps for 4 seconds
+    //Now bring back the colors of board back
+    const squares = document.querySelectorAll('.square');
+    for(let i=0;i<squares.length;i++){
+        squares[i].classList.remove('movable_sqaure');
+        squares[i].style.backgroundColor = 'rgb(70, 70, 70)';
+    }
+
 
     let encode = [];
     let decode = [];
@@ -933,8 +951,14 @@ async function onRotateSqaureClick(e){
         //Animate red laser
         
         animateLaser('red');
-        await sleep(4000);//Program sleeps for 4 seconds
-        
+        await sleep(2000);//Program sleeps for 4 seconds
+        //Now bring back the colors of board back
+        //Now bring back the colors of board back
+        const squares = document.querySelectorAll('.square');
+        for(let i=0;i<squares.length;i++){
+            squares[i].classList.remove('movable_sqaure');
+            squares[i].style.backgroundColor = 'rgb(70, 70, 70)';
+        }
 
         //Add the event listeners to all the squares again
         addPieceEventListeners();
@@ -1011,7 +1035,7 @@ function animateLaser(color){
         //Now move the laser
         while(!laserEscaped(tracer_position,tracer_direction) && !laserHit && !laserBlocked && debug<20){
             debug++;
-            
+
             console.log("Advancing the lazer");
             console.log('Laser position : ' + tracer_position);
 
