@@ -876,7 +876,7 @@ function onRotateSqaureClick(e){
 
     
 
-    fetch("http://localhost:3000/solve", {
+    fetch("/solve", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ encoded_array: encode })
@@ -999,3 +999,4 @@ function onBackClick(){
     
 
 }
+
