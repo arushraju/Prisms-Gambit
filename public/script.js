@@ -707,7 +707,7 @@ async function onMovedSqaureClick(e){
     board_update();
 
     //Animate the blue laser
-    animateLaser('blue');
+    animateLaser('red');
     await sleep(4000);//Program sleeps for 4 seconds
 
     //Now the board should be used to make the encoded list of numbers
@@ -869,7 +869,7 @@ async function onRotateSqaureClick(e){
     board_update();
 
     //Animate blue laser
-    animateLaser('blue');
+    animateLaser('red');
     await sleep(4000);//Program sleeps for 4 seconds
 
     let encode = [];
@@ -900,6 +900,7 @@ async function onRotateSqaureClick(e){
         console.log(decode);
         //Then clone the board and this will only contain the html class and not the event listeners associated to previous board.
         document.querySelector('.board').innerHTML = '';
+
         //Makes the empty board
         let index = 1;
         for(let i=0;i<10;i++){
@@ -930,6 +931,7 @@ async function onRotateSqaureClick(e){
         board_update();
 
         //Animate red laser
+        
         animateLaser('red');
         await sleep(4000);//Program sleeps for 4 seconds
         
@@ -985,6 +987,8 @@ function animateLaser(color){
     let tracer_direction = 0;
     let tracer_position = 0;
 
+    
+
     if(color === 'red'){
         //Tracer initially at red laser
         tracer_position = 80;
@@ -1002,11 +1006,14 @@ function animateLaser(color){
         let laserHit = false;
         let laserBlocked = false;
 
-        //Now move the laser
-        while(!laserEscaped(tracer_position,tracer_direction) || !laserHit || !laserBlocked){
+        let debug = 0;
 
-            //console.log("Advancing the lazer");
-            //console.log('Laser position : ' + tracer_position);
+        //Now move the laser
+        while(!laserEscaped(tracer_position,tracer_direction) && !laserHit && !laserBlocked && debug<20){
+            debug++;
+            
+            console.log("Advancing the lazer");
+            console.log('Laser position : ' + tracer_position);
 
             //Advance the laser once and store the location
             tracer_position = tracer_position + tracer_direction;
@@ -1014,7 +1021,7 @@ function animateLaser(color){
 
 
             //Look if a piece is hit by a piece
-            let tracer_element = document.querySelector(`square${tracer_position}`);
+            let tracer_element = document.getElementById(`square${tracer_position}`);
 
             //Update the tracer value for the advancing the laser
             tracer_direction = updateTracer(tracer_element,tracer_direction);
@@ -1174,10 +1181,10 @@ function updateTracer(tracer_element,tracer_direction){
 
 // For a given laser location and direction it says if the laser has escaped or not.
 function laserEscaped(tracer_position,tracer_direction){
-    const tracer_location = document.querySelectorAll('.square')[tracer_position];
-    //console.log('Debugging the escape lazer function');
-    //console.log('Laser Position : ' + tracer_position);
-    //console.log('Laser Direction : ' + tracer_direction);
+    const tracer_location = document.getElementById(`square${tracer_position}`);
+    console.log('Debugging the escape lazer function');
+    console.log('Laser Position : ' + tracer_position);
+    console.log('Laser Direction : ' + tracer_direction);
 
     //If the position at which tracer lies on the board doesn't contain any piece
     if(!tracer_location.classList.contains('piece')){
@@ -1228,5 +1235,4 @@ function onBackClick(){
 
     instruction_content.innerHTML = "<p>How did you like the game? If there is any suggestions related to, your likes or dislikes about the game, please email me from the mail ID given below. I would be happy to know from you</p><p>You may also try other setups of the game.</p>";
     
-
 }
