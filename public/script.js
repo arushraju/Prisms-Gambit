@@ -355,7 +355,7 @@ form.addEventListener('submit',function OnFormSubmit(e){
         document.getElementById('square33').classList.add('blue','bsheild','orient3','piece');
         document.getElementById('square36').classList.add('blue','bdeflector','orient2','piece');
         document.getElementById('square37').classList.add('red','rdeflector','orient1','piece');
-        // document.getElementById('square40').classList.add('red','rking','orient0','piece');
+        document.getElementById('square40').classList.add('red','rking','orient0','piece');
         document.getElementById('square41').classList.add('blue','bking','orient0','piece');
         document.getElementById('square44').classList.add('blue','bdeflector','orient1','piece');
         document.getElementById('square45').classList.add('red','rdeflector','orient2','piece');
@@ -997,4 +997,5 @@ function onBackClick(){
 
     instruction_content.innerHTML = "<p>How did you like the game? If there is any suggestions related to, your likes or dislikes about the game, please email me from the mail ID given below. I would be happy to know from you</p><p>You may also try other setups of the game.</p>";
     
+
 }
