@@ -495,25 +495,38 @@ form.addEventListener('submit',function OnFormSubmit(e){
     //Add event listener to all the pieces
     addPieceEventListeners();
 });
-//Adds event listerners to all the movable piece
-function addPieceEventListeners(){
-    const piece = document.querySelectorAll('.piece');
-    for (let i=0;i<piece.length;i++){
-        //Adding event listner on blue
-        if(player_color == 'blue'){
-            if(piece[i].classList.contains('blue') && !piece[i].classList.contains('blaser')){
-                piece[i].addEventListener('click',onPieceClick);
+
+//Adds the click event listenrs to the sqaures
+function addPieceEventListeners() {
+    const squares = document.querySelectorAll('.square');
+
+    for (let i = 0; i < squares.length; i++) {
+
+        if (!squares[i].classList.contains('piece')) continue;
+
+        // Always remove first (safe)
+        squares[i].removeEventListener('click', onPieceClick);
+
+        if (player_color === 'blue') {
+            if (
+                squares[i].classList.contains('blue') &&
+                !squares[i].classList.contains('blaser')
+            ) {
+                squares[i].addEventListener('click', onPieceClick);
             }
         }
-        if(player_color == 'red'){
-            //Adding event listener on red
-            if(piece[i].classList.contains('red') && !piece[i].classList.contains('rlaser')){
-                piece[i].addEventListener('click',onPieceClick);
+
+        if (player_color === 'red') {
+            if (
+                squares[i].classList.contains('red') &&
+                !squares[i].classList.contains('rlaser')
+            ) {
+                squares[i].addEventListener('click', onPieceClick);
             }
         }
     }
-
 }
+
 
 /************************************** PIECE IS CLICKED TO MOVE OR ROTATE *****************************/
 
@@ -716,6 +729,8 @@ async function onMovedSqaureClick(e){
         squares[i].style.backgroundColor = 'rgb(70, 70, 70)';
     }
 
+    board_update();
+
     //Now the board should be used to make the encoded list of numbers
     let encode = [];
     let decode = [];
@@ -766,12 +781,6 @@ async function onMovedSqaureClick(e){
         //Updates the classes based on deocoded array
         makeDecode(decode);
         
-
-        //After the animation is done I remove the canvas
-        //canvas.style.display='none';
-        
-
-
         //Adds the images based on the classes
         board_update();
 
@@ -891,6 +900,8 @@ async function onRotateSqaureClick(e){
         squares[i].style.backgroundColor = 'rgb(70, 70, 70)';
     }
 
+    board_update();
+
 
     let encode = [];
     let decode = [];
@@ -941,12 +952,6 @@ async function onRotateSqaureClick(e){
         //Updates the classes based on deocoded array
         makeDecode(decode);
         
-
-        //After the animation is done I remove the canvas
-        //canvas.style.display='none';
-        
-
-
         //Adds the images based on the classes
         board_update();
 
