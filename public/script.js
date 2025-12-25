@@ -1107,7 +1107,9 @@ function animateLaser(color){
             
             //Update the tracer value for the advancing the laser
             tracer_direction = updateTracer(tracer_element,tracer_direction);
-            if(laserEscaped(tracer_position,tracer_direction) || laserHit || laserBlocked){break;}
+            console.log('This should solve the problem.');
+            console.log('Here the value of tracer_position is ' + tracer_position + 'and the value of tracer direction is ' + tracer_direction);
+            if(laserEscaped(tracer_position,tracer_direction)){break;}
             //console.log('After updating the Laser direction : ' + tracer_direction);
 
             if(tracer_direction === 0){
