@@ -1188,8 +1188,8 @@ function updateTracer(tracer_element,tracer_direction){
         }
         //laser encounters Deflector
         else if(tracer_element.classList.contains('bdeflector') || tracer_element.classList.contains('rdeflector')){
-            if(tracer_element.classList.contains('orient1')){return -8;}
-            else if(tracer_element.classList.contains('orient2')){return +8;}
+            if(tracer_element.classList.contains('orient1')){return -1;}
+            else if(tracer_element.classList.contains('orient2')){return +1;}
         }
     }
     //If the laser is travelling to right
@@ -1206,8 +1206,8 @@ function updateTracer(tracer_element,tracer_direction){
         }
         //laser encounters Deflector
         else if(tracer_element.classList.contains('bdeflector') || tracer_element.classList.contains('rdeflector')){
-            if(tracer_element.classList.contains('orient1')){return +8;}
-            else if(tracer_element.classList.contains('orient2')){return -8;}
+            if(tracer_element.classList.contains('orient1')){return +1;}
+            else if(tracer_element.classList.contains('orient2')){return -1;}
         }
     }
 
