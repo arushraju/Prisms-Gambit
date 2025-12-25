@@ -1059,6 +1059,9 @@ function animateLaser(color){
             console.log(`ID of tracer_element is square${tracer_position}`);
             //Update the tracer value for the advancing the laser
             tracer_direction = updateTracer(tracer_element,tracer_direction);
+            //This is to make sure there is no undefined position of laser.
+            console.log('This should solve the problem.');
+            console.log('Here the value of tracer_position is ' + tracer_position + ' and the value of tracer direction is ' + tracer_direction);
 
             if(tracer_direction === 0){
                 //console.log("Laser has killed a piece or is blocked by it");
@@ -1107,8 +1110,11 @@ function animateLaser(color){
             
             //Update the tracer value for the advancing the laser
             tracer_direction = updateTracer(tracer_element,tracer_direction);
+
+            //This is to make sure there is no undefined position of laser.
             console.log('This should solve the problem.');
             console.log('Here the value of tracer_position is ' + tracer_position + 'and the value of tracer direction is ' + tracer_direction);
+            
             if(laserEscaped(tracer_position,tracer_direction)){break;}
             //console.log('After updating the Laser direction : ' + tracer_direction);
 
@@ -1277,3 +1283,4 @@ function onBackClick(){
     instruction_content.innerHTML = "<p>How did you like the game? If there is any suggestions related to, your likes or dislikes about the game, please email me from the mail ID given below. I would be happy to know from you</p><p>You may also try other setups of the game.</p>";
     
 }
+
