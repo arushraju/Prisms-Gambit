@@ -1104,16 +1104,20 @@ function animateLaser(color){
             let tracer_element = document.getElementById(`square${tracer_position}`);
             console.log(`ID of tracer_element is square${tracer_position}`);
             //console.log(`Class List of element at this location is : ${tracer_element.classList}`);
+            if(!laserEscaped(tracer_position,tracer_direction) && !laserHit && !laserBlocked){
+                //Update the tracer value for the advancing the laser
+                tracer_direction = updateTracer(tracer_element,tracer_direction);
 
-            //Update the tracer value for the advancing the laser
-            tracer_direction = updateTracer(tracer_element,tracer_direction);
+                //console.log('After updating the Laser direction : ' + tracer_direction);
 
-            //console.log('After updating the Laser direction : ' + tracer_direction);
-
-            if(tracer_direction === 0){
-                //console.log("Laser has killed a piece or is blocked by it");
-                laserHit = true;
+                if(tracer_direction === 0){
+                    //console.log("Laser has killed a piece or is blocked by it");
+                    laserHit = true;
+                }
+            } else {
+                break;
             }
+            
         }
     }
 
