@@ -790,6 +790,8 @@ async function onMovedSqaureClick(e){
             squares[i].style.backgroundColor = 'rgb(70, 70, 70)';
         }
 
+        //Again update the board to properly add the event listeners
+        board_update();
 
         //Add the event listeners to all the squares again
         addPieceEventListeners();
@@ -959,6 +961,9 @@ async function onRotateSqaureClick(e){
             squares[i].classList.remove('movable_sqaure');
             squares[i].style.backgroundColor = 'rgb(70, 70, 70)';
         }
+
+        //Again update the board to properly add the event listeners
+        board_update();
 
         //Add the event listeners to all the squares again
         addPieceEventListeners();
