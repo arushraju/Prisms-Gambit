@@ -496,7 +496,7 @@ form.addEventListener('submit',function OnFormSubmit(e){
     addPieceEventListeners();
 });
 
-//Adds the click event listenrs to the sqaures
+//Adds the click event listenrs to squares which contians piece, for selecting it to rotate or move.
 function addPieceEventListeners() {
     const squares = document.querySelectorAll('.square');
 
@@ -504,7 +504,7 @@ function addPieceEventListeners() {
 
         if (!squares[i].classList.contains('piece')) continue;
 
-        // Always remove first (safe)
+        // Removing the event listeners.
         squares[i].removeEventListener('click', onPieceClick);
 
         if (player_color === 'blue') {
@@ -663,7 +663,11 @@ function onPieceClick(e){
 }
 
 function addEventListenerAllMoveablePeice(){
-    //If the piece is avalibale to move to.
+
+    //Firstly remove all the event listeners on all the squares
+    const squares = document.querySelectorAll('.square');
+
+    //If the piece is avaliable to move to.
     const movable_squares = document.querySelectorAll('.movable_sqaure');
     for(let i=0;i<movable_squares.length;i++){
         movable_squares[i].style.backgroundColor = 'red';
