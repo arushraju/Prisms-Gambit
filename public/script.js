@@ -905,7 +905,7 @@ async function onRotateSqaureClick(e){
         for(let i=0;i<10;i++){
             const board_col = document.createElement('div');
             board_col.classList.add('col', `col${i+1}`);
-            chessboard.appendChild(board_col);
+            document.querySelector('.board').appendChild(board_col);
             for(let j=0;j<8;j++){
                 const board_row = document.createElement('div');
                 board_row.classList.add('square');
@@ -1228,4 +1228,5 @@ function onBackClick(){
 
     instruction_content.innerHTML = "<p>How did you like the game? If there is any suggestions related to, your likes or dislikes about the game, please email me from the mail ID given below. I would be happy to know from you</p><p>You may also try other setups of the game.</p>";
     
+
 }
