@@ -1023,6 +1023,7 @@ function animateLaser(color){
     
 
     if(color === 'red'){
+        console.log('RED');
         //Tracer initially at red laser
         tracer_position = 80;
 
@@ -1055,7 +1056,7 @@ function animateLaser(color){
 
             //Look if a piece is hit by a piece
             let tracer_element = document.getElementById(`square${tracer_position}`);
-
+            console.log(`ID of tracer_element is square${tracer_position}`);
             //Update the tracer value for the advancing the laser
             tracer_direction = updateTracer(tracer_element,tracer_direction);
 
@@ -1066,6 +1067,7 @@ function animateLaser(color){
         }
     }
     else if(color == 'blue'){
+        console.log('BLUE');
         //Tracer initially at blue laser
         tracer_position = 1;
 
@@ -1100,7 +1102,7 @@ function animateLaser(color){
 
             //Look if a piece is hit by a piece
             let tracer_element = document.getElementById(`square${tracer_position}`);
-
+            console.log(`ID of tracer_element is square${tracer_position}`);
             //console.log(`Class List of element at this location is : ${tracer_element.classList}`);
 
             //Update the tracer value for the advancing the laser
