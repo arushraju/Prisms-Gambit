@@ -25,7 +25,7 @@ app.post("/solve", (req, res) => {
 
         const solverPath = path.join(
             __dirname,
-            process.env.SOLVER_PATH || "laser_chess_linux_server_2"
+            process.env.SOLVER_PATH
         );
 
         execFile(solverPath, args, (err, stdout, stderr) => {
@@ -47,6 +47,7 @@ app.post("/solve", (req, res) => {
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
 
 
 
