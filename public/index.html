@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prism's Gambit</title>
+    <link rel="stylesheet" href="./style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap" rel="stylesheet">
+    <style>
+        body{
+            overflow:hidden;
+            background-image: url(./Media/brick-wall.png);
+        }
+        .tektur {
+            font-family: "Tektur", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+            font-variation-settings:
+            "wdth" 100;
+        }
+        .special_font{
+            color: red;
+            font-weight: 700;
+        }
+        .heading-3{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            color: white;
+            background-color: rgb(91, 0, 148);
+            padding-top: 2%;
+            padding-bottom: 2%;
+            font-weight: 900;
+        }
+        details{
+            border: 1px solid black;
+            margin: 5%;
+            padding: 5%;
+        }
+        details:hover{
+            cursor:pointer;
+        }
+        
+        .opening-animation-container{
+            z-index: 200;
+            position: fixed;
+            padding: 0;
+            margin: 0;
+            background-color: black;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            display: block;
+            opacity: 1;
+            transition-property: opacity;
+            transition-duration: 1.5s;
+        }
+        .opening-animation{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .ani_row{
+            position: relative;
+            aspect-ratio: 1/1;
+            width: 3.5vw;
+            border: 1px solid white;
+            
+        }
+        
+        .ani_image{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .evaluation-display-container{
+            position: absolute;
+
+        }
+
+        details img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body class="tektur">
+    <div class="main_container">
+        <!--Opening Animation-->
+        <div class="opening-animation-container">
+            <div class="opening-animation">
+            </div>
+        </div>
+
+        <!--Start Button-->
+        <div class="start-button-container">
+            <div class="start-button"></div>
+        </div>
+
+        <!--Instructions-->
+        <div class="instruction-position">
+            <div class="instructions">
+                <div class="instruction-heading">
+                    <h1>Prism's Gambit</h1>
+                </div>
+                <div class="instruction-content">
+                    <p>
+                        I welcome you to my website <span class="special_font">Prism's Gambit</span>, also known as The laser chess. Also, thank you of being here. This is my second full stack project where you can play a game of laser chess with a computer bot that I have built. This website is built using Javascript and Node.js (The web hosting service used is <a href="https://render.com" target="_blank">Render</a>) and the bot itself is made in C language. The bot uses Alpha-Beta Minimax algorithm to get the best move in this game. To know how the website is built in detail, check out the link to the documentation below.
+                    </p>
+                    <p>
+                        If you are new to the game and are not sure how to play it, you will also find a short instruction pop up below.
+                    </p>
+                </div>
+            </div> 
+        </div>
+
+        <!--How to play-->
+        <details>
+            <summary>How to play?</summary>
+            <p>
+                Given below is detailed explantion of the game and also the about how can you play it on this website. For further clarity, a video explaining the game is also provided.<br><br>
+                <video>
+
+                </video>
+                <ul>
+                    <li>
+                        <h2>Rules of the Game</h2>
+                        <ul>
+                    <li>
+                        The game is played between two players: <b>Red</b> and <b>Blue</b> (similar to chess).
+                        Each turn follows a strict sequence:
+                        <br><br>
+                        <span class="special_font">First, the player makes a move. Then, their laser is fired.</span>
+                        <br><br>
+                        After the laser finishes its path, the opponent takes their turn and fires their laser.
+                    </li>
+
+                    <li>
+                        <p>
+                            There are <b>four types of pieces</b> in the game (similar to Pawn, Bishop, Rook, and Knight in chess),
+                            along with a <b>King</b>.  
+                            Unlike chess, <b>there is no Queen</b> in Laser Chess.
+                        </p>
+
+                        <p>
+                            On your turn, you may perform <b>only one</b> of the following actions:
+                        </p>
+
+                        <p>
+                            • <span class="special_font">Move a piece one square in any direction</span>, or  
+                            <br>
+                            • <span class="special_font">Rotate a piece by 90°</span>
+                        </p>
+
+                        <p>
+                            <img src="./Media/King_movement.gif" alt="King movement"/>
+                            <br>
+                            <span>The King can move one unoccupied square in any direction but cannot be rotated.</span>
+                        </p>
+
+                        <p>
+                            <img src="./Media/Mirror_Move_rot.gif" alt="Mirror movement and rotation"/>
+                            <br>
+                            <span>The Mirror can move one unoccupied square in any direction and can also be rotated.</span>
+                        </p>
+
+                        <p>
+                            <img src="./Media/Deflector_Rotation_move.gif" alt="Deflector movement and rotation"/>
+                            <br>
+                            <span>The Deflector can move one unoccupied square in any direction and can also be rotated.</span>
+                        </p>
+
+                        <p>
+                            <img src="./Media/Sheild_move_Rot_Block.gif" alt="Shield movement and rotation and blocked"/><br>
+                            <span>The Shield can move one unoccupied square in any direction and can also be rotated.</span>
+                            <span>Notice how shield could block the laser.</span>
+                            <img src="./Media/Shield_move_Rot_Killed.gif" alt="Shield movement and rotation and killed"/>
+                            <span>Notice how shield could be destroyed by laser when hit by it in non reflecting side.</span>
+                            <br>
+                            
+                        </p>
+
+                        <p>
+                            This covers all possible movements and rotations in the game.  
+                            Next, let’s look at the purpose and behavior of each piece.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            <span class="heading-3">King</span><br>
+                            The objective of the game is to hit the opponent’s King with a laser.
+                            <br><br>
+                            <span class="special_font">
+                                Any laser—Red or Blue—can destroy any King, including your own.
+                            </span>
+                            <br><br>
+                            If your King is hit by any laser, the game immediately ends and you lose.
+                            <br><br>
+                            The King has no orientation—being hit from any direction destroys it.
+                            <br><br>
+                            <img src="" alt="King being hit by a laser">
+                        </p>
+
+                        <p>
+                            <span class="heading-3">Mirror</span><br>
+                            Mirrors are the heroes of the game. They allow players to create complex traps
+                            by reflecting incoming lasers at a <b>90° angle</b>.
+                            <br><br>
+                            However, Mirrors have a weakness:  
+                            if a laser strikes a non-reflective side, the Mirror is destroyed.
+                            <br><br>
+                            Be careful—your own laser can destroy your own pieces if you make a mistake.
+                            <br><br>
+                            <img src="" alt="Mirror destroyed by laser">
+                        </p>
+
+                        <p>
+                            <span class="heading-3">Deflector</span><br>
+                            Deflectors are the <b>immortal pieces</b> on the board.
+                            <br><br>
+                            They behave like Mirrors but have no non-reflective sides,
+                            meaning they <b>cannot be destroyed</b>.
+                            <br><br>
+                            As shown in the diagram below, Deflectors can reflect lasers from both sides.
+                            <br><br>
+                            <img src="" alt="Deflector reflecting laser">
+                        </p>
+
+                        <p>
+                            <span class="heading-3">Shield</span><br>
+                            Shields can block a laser from one specific side.
+                            <br><br>
+                            If a laser hits the Shield from either of the other two sides,
+                            the Shield is destroyed.
+                            <br><br>
+                            The diagram below illustrates how a Shield blocks or gets destroyed by a laser.
+                            <br><br>
+                            <img src="" alt="Shield interaction with laser">
+                        </p>
+                    </li>
+                </ul>
+
+                    </li>
+                    <li>
+                        <h3>How to Play Your Move</h3>
+
+                        <p>
+                            To make a move, <span class="special_font">click on the piece</span> you want to play.
+                        </p>
+
+                        <p>
+                            Once selected, all valid squares the piece can move to will be
+                            <span class="special_font">highlighted in red</span>.
+                            Click on any red-highlighted square to move the piece.
+                        </p>
+
+                        <p>
+                            To <span class="special_font">rotate a piece</span>, first click on the piece.
+                            A rotation button will then appear on the
+                            <span class="special_font">right side of the board</span>.
+                            Press this button to rotate the piece by <b>90°</b>.
+                        </p>
+
+                        <p class="note">
+                            Note: In a single turn, you can either <b>move</b> a piece or <b>rotate</b> it — not both.
+                        </p>
+                    </li>
+                </ul>
+            </p>
+        </details>
+        <br>
+        <br>
+
+        
+        
+
+        <!--Evaluation Display-->
+        <div class="evaluation-display-container">
+            <div class="evaluation-display"><h3>Evaluation = #</h3></div>
+        </div>
+
+        <!--Board-->
+        <div class="board-container">
+            <div class="board">
+            </div>
+        </div>
+
+        <!--Rotate Button-->
+        <div class="rotate-button-container">
+            <div class="anti-clockwise-rotate rotate-button">
+                <img src="./Media/Anti-Clockwise-Rotation.jpg"/>
+            </div>
+            <div class="clockwise-rotate rotate-button">
+                <img src="./Media/Clockwise-Rotation.jpg"/>
+            </div>
+        </div>
+        
+
+        <!--Form of game details-->
+        <div id="form-container">
+            <form action="" id="form" method="get">
+                <div class="depth-input-container">
+                    <label for="depth_input">Enter the Depth of the Engine : </label>
+                    <input type="number" id="depth_input" placeholder="1-4" max="4" min="1" name="depth_integer"  required/>
+                </div>
+                <div class="player-color-container">
+                    <!-- <label for="red-player-color">Red</label>
+                    <input type="radio" name="player-color" value="red" id="red-player-color" required/> -->
+                    <label for="blue-player-color">Blue</label>
+                    <input type="radio" name="player-color" value="blue" id="blue-player-color"/>
+                </div>
+                <div class="submit-button-container">
+                    <button type="submit">Start</button>
+                </div>
+            </form>
+        </div>
+
+        <!--Back Button-->
+        <div class="back-button">
+            <p>Back</p>
+        </div>
+
+        <!--Setup Catalog-->
+        <div class="setup-position">
+            <div class="setup-catalog-container">
+                <div class="setup-catalog-memember ace">
+                    <div class="setup-title">
+                        <h2>ACE</h2>
+                    </div>
+                    <div class="setup-image">
+                        <img src="./Media/ACE_Setup.png" width="500px" class="ace-image"/>
+                    </div>
+                </div>
+                <div class="setup-catalog-memember curiosity">
+                    <div class="setup-title">
+                        <h2>CURIOSITY</h2>
+                    </div>
+                    <div class="setup-image">
+                        <img src="./Media/CURIOSITY_Setup.png" width="500px" class="curiosity-image"/>
+                    </div>
+                </div>
+                <div class="setup-catalog-memember grail">
+                    <div class="setup-title">
+                        <h2>GRAIL</h2>
+                    </div>
+                    <div class="setup-image">
+                        <img src="./Media/GRAIL_Setup.png" width="500px" class="grail-image"/>
+                    </div>
+                </div>
+                <div class="setup-catalog-memember mercury">
+                    <div class="setup-title">
+                        <h2>MERCURY</h2>
+                    </div>
+                    <div class="setup-image">
+                        <img src="./Media/MERCURY_Setup.png" width="500px" class="mercury-image"/>
+                    </div>
+                </div>
+                <div class="setup-catalog-memember sophie">
+                    <div class="setup-title">
+                        <h2>SOPHIE</h2>
+                    </div>
+                    <div class="setup-image">
+                        <img src="./Media/SOPHIE_Setup.png" width="500px" class="sophie-image"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <!--Footer-->
+        <br><hr><br>
+        <div class="footer-container">
+            <div class="footer-card documentation">
+                <div class="image-container">
+                    <a href="" target="_blank">
+                        <div class="the-image">
+                            <img src="./Media/Documentation_Icon.png"/>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-card about-me">
+                <div class="image-container">
+                    <a href="https://hi-arush.com" target="_blank">
+                        <div class="the-image">
+                            <img src="./Media/Arush_Icon.PNG"/>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-card github">
+                <div class="image-container">
+                    <a href="" target="_blank">
+                        <div class="the-image">
+                            <img src="./Media/github-mark.png"/>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+
+    <script src="./script.js"></script>
+    
+
+</body>
+</html>
