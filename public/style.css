@@ -1,0 +1,268 @@
+html, body {
+    height: 100%;
+    margin: 0;      /* remove default margin */
+    padding: 0;
+    /* background-image: url(./Media/cardboard.png); */
+}
+
+/*Complete document*/
+.main_container{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*Instructions*/
+.instruction-position{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.instructions{
+    display: block;
+    width: 75vw;
+    padding: 5%;
+    border: 1px solid black;
+}
+.instruction-heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100%;
+    width: 100%;
+    height: fit-content;
+}
+.instruction-content{
+    display: block;
+    width: 100%;
+    height: fit-content;
+}
+
+/*Setup catalog*/
+.setup-position{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: fit-content;
+}
+.setup-catalog-container{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75vw;
+}
+.setup-catalog-memember{
+    /* border: 1px solid black; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.setup-image img{
+    width: 100%;
+    max-width: 700px;
+    height: 100%;
+    object-fit: contain;
+}
+
+.setup-catalog-memember:hover{
+    cursor: pointer;
+}
+
+/****************************************************************/
+#laser-canvas{
+    display: none;
+    background: transparent;
+    position: absolute;
+    border:2px solid;
+    z-index: 100;
+}
+
+/*************************** CHESS BOARD *********************/
+/***** Chess engine depth input *********/
+#form-container{
+    display: none;
+    /* display: flex; */
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+}
+
+.board-container{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+    height: 50vw;
+}
+
+.board{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    max-width: 700px;
+    aspect-ratio: 5/4;
+}
+
+.col{
+    flex: 1;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.square{
+    flex: 1;
+    border: 1px solid rgb(0, 0, 0);
+    display: flex;
+    background-color: rgb(70, 70, 70);
+}
+/*Piece wrapper for animation*/
+/* .piece:hover{transform: scale(1.1);} */
+.piece:active{
+    transform: scale(1.2);
+}
+
+.square img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    height: 95%;
+}
+
+/*Laptop controls*/
+@media (width>900px){
+    .rotate-button-container{
+        position: fixed;
+        bottom: 50px;
+        right: 100px;
+        width: 100px;
+        height: 50px;
+        border: 1px solid black;
+    }
+
+    .rotate-button-container img{
+        width: 100px;
+        aspect-ratio: 1/1;
+        object-fit: contain;
+    }
+
+    .evaluation-display-container{
+        position: fixed;
+        left: 5px;
+        bottom: 0px;
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        height: fit-content;
+        border: 1px solid black;
+        background-color: yellow;
+    }
+}
+
+/***************************************ROTATE BUTTON*****************************/
+
+.rotate-button-container{
+    position: fixed;
+    bottom: 50px;
+    right: 100px;
+    width: 100px;
+    height: 50px;
+    border: 1px solid black;
+}
+
+.rotate-button-container img{
+    width: 100px;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+}
+
+/*Evalaution Display*/
+.evaluation-display-container{
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid black;
+    background-color: yellow;
+}
+
+
+/*********     BACK BUTTON            **********/
+.back-button{
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 1px solid black;
+    display: none;
+    background-color: yellow;
+    border-radius: 10%;
+}
+.back-button:hover{
+    cursor: pointer;
+}
+
+
+
+/************* Footer *********/
+.footer{
+    /* border: 1px solid black; */
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    margin-top: 25vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+}
+
+.footer-container{
+    margin-top: 25vh;
+    height: 25vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-card{
+    flex: 1;
+    /* border:1px solid black; */
+    height: 100%;
+    width: 100%;
+}
+
+.image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid yellow; */
+}
+
+.the-image{
+    width: 80px;
+    height: 80px;
+}
+
+.the-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* border: 1px solid red;  */
+}
+
+
+
